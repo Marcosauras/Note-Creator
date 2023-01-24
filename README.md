@@ -1,8 +1,26 @@
 # Note Creator
 
+## Coding Badges
+![alt text](https://img.shields.io/badge/Node.js-modules-green)
+![alt text](https://img.shields.io/badge/JavaScript-.js-yellowgreen)
+![alt text](https://img.shields.io/badge/HTML-.html-orange)
+![alt text](https://img.shields.io/badge/CSS-.css-blue)
+![alt text](https://img.shields.io/badge/Jest%20Test-jest-red)
+
 # Description 
 If you ever have trouble keeping track of your notes, this application if for you, simply put a input into the website and save your note and the application will do the rest of the work saving your note until you delete it.
 
+# How to Use
+click on the link below and it will send you to the note taking website.
+[Note Taking App Link](https://note-creator2700.herokuapp.com/)
+from there click on the button that says get started.
+
+![screenshot of button](public/assets/img/Screenshot%20of%20note%20taking%20button.png)
+From there you will be sent to a page where you can write a title and details of what you want to remember as shown below
+
+![Demonstration of how to write notes](public/assets/img/Screenshot%20of%20note%20being%20writen.png)
+
+if you want to delete the note when it is no longer needed simply click on the red trash can to the right of your title.
 ## Acceptance Criteria
 
 ```
