@@ -1,34 +1,34 @@
 // adding all required files
-const express = require("express");
+const router = require("express").Router();
 const noteHandler = require("../db/NoteHandler.js")
-let router = express.Router();
-
-// run a delete route to remove a note
-router
-    .route("notes/:id")
-    .delete((err, req, res, next) => {
-        noteHandler
-            .deleteNote(req.params.id)
-            .then(() => res.json({ok: true}))
-            .catch(error => res.status(500).json(error))
-
-    console.log("You have deleted a note")
-    })
 
 // routes to grab notes and add notes
 router
     .route("/notes")
-    .get((err, req, res, next) => {
+    .get((req, res) => {
         noteHandler
             .getNotesFromDatabase()
-            .then(notes => {res.json(notes)})
-            .catch(error => {res.status(500).json(error)})
+            .then(notes => {    res.json(notes)})
+            .catch(err => {console.log(err)})
     })
-    .post((err, req, res, next) => {
+    .post((req, res) => {
+        console.log("adding note")
         noteHandler
             .addNote(req.body)
-            .then(noteAdded => {res.json(noteAdded)})
-            .catch(error => {res.status(500).json(error)})
+            .then(noteAdded => {    res.json(noteAdded)})
+            .catch(err => {console.log(err)})
+    })
+
+// run a delete route to remove a note
+router
+    .route("/notes/:id")
+    .delete((req, res) => {
+        noteHandler
+            .deleteNote(req.params.id)
+            .then(() => res.json({ok: true}))
+            .catch(err => {console.log(err)})
+
+    console.log("You have deleted a note")
     })
 
 module.exports = router

@@ -7,20 +7,19 @@ const writeFile = util.promisify(fs.writeFile)
 const readFile = util.promisify(fs.readFile)
 
 class NoteHandler {
-
     // writes all the notes passed through it to the database
     writeNote(noteAdded){
-        return writeFile("./db.json", JSON.stringify(noteAdded));
+        return writeFile("db/db.json", JSON.stringify(noteAdded));
     }
     // creating a way to read the database file
     // this reads all of the notes we put in there
     readNote(){
-        return readFile("./db.json", "utf8")
+        return readFile("db/db.json", "utf8")
     }
 
     // adds created note to the database so we can call on it later
     addNote(noteAdded){
-        const{title, text} = noteAdded
+        const{ title, text } = noteAdded
         // sets the new note to be injected into the db
         const newNoteBeingAdded = { title, text, id: uuid() }
         // injects the new note
